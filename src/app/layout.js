@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
           </Link>
         </nav>
         <main 
-          className='container mx-auto px-4'
+          className='max-w-screen-xl mx-auto px-4'
         >
           {children}
         </main>

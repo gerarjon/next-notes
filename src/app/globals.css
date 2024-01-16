@@ -19,23 +19,6 @@ a {
   margin: 0;
 }
 
-input, textarea { 
-  display: block;
-  max-width: 300px;
-  margin: 0.5rem 0;
-}
-
-button {
-  background-color: #000000;
-  border: none;
-  color: white;
-  padding: 0.5rem 2rem;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  cursor: pointer;
-}
-
 nav a {
   font-weight: bold;
   margin: 0 0.5rem;
