@@ -2,7 +2,7 @@ import Link from 'next/link'
 import CreateNote from './CreateNote';
 
 async function getNotes() {
-  const res = await fetch('http://127.0.0.1:8090/api/collections/notes/records?page=1&perPage=30', { cache: 'no-store' });
+  const res = await fetch('http://127.0.0.1:8090/api/collections/notes/records?page=1&perPage=30&sort=-created', { cache: 'no-store' });
   const data = await res.json();
   return data.items;
 }
@@ -31,7 +31,7 @@ function Note({note}) {
       <div className='px-6 py-4'>
         <h2 className='font-semibold text-lg mb-2'>{title}</h2>
         <p className='text-gray-700 text-base mb-2'>{content}</p>
-        <p className='text-gray-700 text-xs '>{Date(created)}</p>
+        <p className='text-gray-500 text-xs '>{created}</p>
       </div>
     </Link>
   ) 
