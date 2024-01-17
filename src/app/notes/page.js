@@ -15,7 +15,7 @@ export default async function NotesPage() {
       <h1 className='text-2xl font-bold underline underline-offset-8 decoration-wavy my-5'>Notes</h1>
 
       <CreateNote />
-      <div className='grid sm:grid-cols-2 lg:grid-cols-4 gap-4'>
+      <div className='grid z-10 sm:grid-cols-2 lg:grid-cols-4 gap-4'>
         {notes?.map((note) => {
           return <Note key={note.id} note={note} />
         })}
@@ -31,7 +31,7 @@ function Note({note}) {
       <div className='px-6 py-4'>
         <h2 className='font-semibold text-lg mb-2'>{title}</h2>
         <p className='text-gray-700 text-base mb-2'>{content}</p>
-        <p className='text-gray-700 text-xs '>{created}</p>
+        <p className='text-gray-700 text-xs '>{Date(created)}</p>
       </div>
     </Link>
   ) 
