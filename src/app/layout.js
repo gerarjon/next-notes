@@ -5,7 +5,10 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Next Notes',
+  title: {
+    template: '%s | Next Notes',
+    default: 'Next Notes w/ Pocketbase'
+  },
   description: 'Notes App with Pocketbase Backend',
 }
 
