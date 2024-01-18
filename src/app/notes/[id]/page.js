@@ -1,5 +1,15 @@
 import Link from 'next/link'
-import { getNote } from '@/app/api/route'
+
+async function getNote(noteId) {
+  const res = await fetch(`http://127.0.0.1:8090/api/collections/notes/records/${noteId}`,
+    {
+      next: { revalidate: 10 },
+    }
+  );
+
+  const data = await res.json();
+  return data;
+}
 
 export async function generateMetadata({ params }) {
   return {

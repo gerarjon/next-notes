@@ -1,6 +1,15 @@
 import Link from 'next/link'
 import CreateNote from './CreateNote';
-import { getAllNotes } from '../api/route';
+
+async function getAllNotes() {
+  const res = await fetch('http://127.0.0.1:8090/api/collections/notes/records?page=1&perPage=30&sort=-created', 
+  { 
+    cache: 'no-store' 
+  });
+
+  const data = await res.json();
+  return data.items;
+}
 
 
 export default async function NotesPage() {
