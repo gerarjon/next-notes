@@ -13,7 +13,7 @@ export default function DeleteButton(params) {
       );
       
       if (response.ok) {
-        router.push('/notes'); /// fix this - does not revalidate notes page after deletion
+        router.push('/notes');
         router.refresh();
       } else {
         console.error('Failed to make DELETE request.');
