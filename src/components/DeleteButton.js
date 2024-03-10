@@ -1,19 +1,26 @@
 "use client"
 
-import { revalidatePath } from "next/cache";
 import { useRouter } from "next/navigation";
 
 export default function DeleteButton(params) {
-  console.log(params.id)
   const router = useRouter();
   const handleDelete = async (params) => {
-    await fetch(`http://127.0.0.1:8090/api/collections/notes/records/${params.id}`, {
-        method: 'DELETE',
-      },
-    );
-
-    router.push('/notes'); /// fix this - does not revalidate notes page after deletion
-    console.log(`Deleted note: ${params.id}`)
+    try {
+      const response = await fetch(`http://127.0.0.1:8090/api/collections/notes/records/${params.id}`, 
+        {
+          method: 'DELETE',
+        },
+      );
+      
+      if (response.ok) {
+        router.push('/notes'); /// fix this - does not revalidate notes page after deletion
+        router.refresh();
+      } else {
+        console.error('Failed to make DELETE request.');
+      }
+    } catch (error) {
+      console.error('Error while making DELETE request', error);
+    }
   };
 
   return <button 
